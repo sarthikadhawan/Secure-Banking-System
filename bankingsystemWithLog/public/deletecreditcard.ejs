@@ -1,0 +1,30 @@
+<%if(usertype==1){
+  %>
+  <a href="https://192.168.2.142:80/frontpagere" value="HOME">home</a><%
+}
+else if(usertype==2){
+  %><a href="https://192.168.2.142:80/frontpagesm" value="HOME">home</a><%
+}
+else if(usertype==3){
+  %><a href="https://192.168.2.142:80/frontpagesa" value="HOME">home</a><%
+}
+
+else if(usertype==4){
+%><a href="https://192.168.2.142:80/frontpageiu" value="HOME">home</a>
+<%}
+else{%>
+<a href="https://192.168.2.142:80/frontpagem" value="HOME">home</a><%}%>
+
+
+DELETE CREDIT CARD
+<form method="post" action="/re/deletecreditcard">
+<h2>See customer transaction</h2>
+</br>
+aadhar number - <input type="text" name="useraadhar" required><br>
+card no - <input type="text" name="cardno" required><br>
+<input type="hidden" name="aadhar" value=<%=aadhar%>><br>
+
+	
+
+<input type="submit" value="send" name="send">
+</form>

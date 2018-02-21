@@ -1,0 +1,52 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+  <%if(userid!=null&&sessionid!=null){%>
+<form method="get" action="frontpagere">
+<button name="getdata" value=<%=aadhar%>>home page</button>
+</form>
+
+<table>
+  	<tr>
+    
+    <th>Request ID</th>
+    <th>User Aadhar</th>
+    <th>transaction ID</th>
+    <th>action</th>
+    
+    </tr>
+
+    <%
+    if(requests.length>0){
+        for (var i=0;i<requests.length;i++)
+        {
+            if(requests[i].transactionID!=null){
+            %>
+                <tr>
+                <td><%=requests[i].RequestID%></td>
+                <td><%=requests[i].UserAadhar%></td>
+                <td><%=requests[i].transactionID%></td>
+                <td>
+                    <form method="post" action="acceptrejecttransaction">
+                        <input type="hidden" name="useraadhar" value=<%=requests[i].UserAadhar%>>
+                        <input type="hidden" name="empaadhar" value=<%=aadhar%>>
+                        <input type="hidden" name="reqid" value=<%=requests[i].RequestID%>>
+                        <button name="accept" value='1'>accept</button>
+                        <button name="accept" value='0'>reject</button>
+
+
+                    </form>
+                </td>
+
+                </tr>
+                <%
+        }
+        }
+
+    }}
+    %>
+</table>

@@ -1,0 +1,87 @@
+<%
+if(userid!=null&&sessionid!=null){
+    if(usertype==1){
+      %>
+      <a href="https://192.168.2.142:80/frontpagere" value="HOME">home</a><%
+    }
+    else if(usertype==2){
+      %><a href="https://192.168.2.142:80/frontpagesm" value="HOME">home</a><%
+    }
+    else if(usertype==3){
+      %><a href="https://192.168.2.142:80/frontpagesa" value="HOME">home</a><%
+    }
+
+    else if(usertype==4){
+    %><a href="https://192.168.2.142:80/frontpageiu" value="HOME">home</a>
+    <%}
+    else{%>
+    <a href="https://192.168.2.142:80/frontpagem" value="HOME">home</a><%}%>
+
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<body>
+
+<h3>Add money to your account ! </h3>
+
+<div>
+  <form action="/credit_money" method="post" id="nameform">
+
+	<label for="amt">Enter your Account Number :</label>
+    <input type="number" id="accountnumber" name="accountnumber" placeholder="Your account number.." required="required" max="2147483645">
+
+    <label for="amt">Amount</label>
+    <input type="number" id="amt" name="amount" placeholder="Amount to be transferred.." required="required" max="10000">
+    <input type="submit" value="Submit"onclick="abc()">
+  </form>
+</div>
+
+</body>
+</html>
+
+<script>
+function abc()
+{
+var amt=document.getElementById("amt");
+amt.value=Math.abs(amt.value);
+alert(amt.value);
+}
+</script>
+
+<script>
+window.onload = function () { history.forward(); }
+window.onunload = function() {}; 
+</script>
+
+<%}%>

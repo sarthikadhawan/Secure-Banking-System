@@ -1,0 +1,31 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+  <%if(userid!=null&&sessionid!=null){%>
+
+<TABLE BORDER=1>
+  	<tr>
+    
+    <th>DebitAccount</th>
+    <th>CreditAccount</th>
+    <th>Amount</th>
+    
+    </tr>
+<%
+if(transaction.length>0){
+for (var i=0;i<transaction.length;i++)
+    {   
+	%>
+<tr>
+<td><%=transaction[i].DebitAccount%></td>
+<br>
+<td><%=transaction[i].CreditAccount%></td>
+<br>
+<td><%=transaction[i].Amount%></td>
+<%}
+}}%>
+</TABLE>

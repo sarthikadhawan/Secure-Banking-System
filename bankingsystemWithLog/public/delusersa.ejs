@@ -1,0 +1,265 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <%if(userid!=null&&sessionid!=null){%>
+
+<style>
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+</style>
+
+<div class="content">
+<form method="post" action="/delusersendreqsa">
+  	<TABLE BORDER=1>
+    Regular Employee
+    <br>
+  	<TR>
+    <TD>Delete</TD>
+    <TD>ID</TD>
+
+    <TD>User Name</TD>
+    <TD>User Email</TD>
+
+    </TR>
+
+    <%
+
+    if(re.length>0)
+    {
+    for (var i=0;i<re.length;i++)
+    {    
+
+    	%>
+        <TR>
+        <TD><input type="radio" name="checkboxreqre" value=<%=re[i].ID+","+re[i].AadharNumber%>></TD>
+        <TD><%=re[i].ID%></TD>
+
+        <TD><%=re[i].Name%></TD>
+        <TD><%=re[i].Email%></TD>
+        </TR>
+        <%
+    }
+    }
+    %>
+    </TABLE>    <br><br>
+
+
+    System Manager
+    <br>
+    <TABLE BORDER=1>
+
+    <TR>
+    <TD>Delete</TD>
+    <TD>ID</TD>
+
+    <TD>User Name</TD>
+    <TD>User Email</TD>
+
+    </TR>
+
+    <%
+    if(sm.length>0){
+    for (var i=0;i<sm.length;i++)
+    {    
+
+        %>
+        <TR>
+        <TD><input type="radio" name="checkboxreqsm" value=<%=sm[i].ID+","+sm[i].AadharNumber%>></TD>
+        <TD><%=sm[i].ID%></TD>
+
+        <TD><%sm[i].Name%></TD>
+        <TD><%=sm[i].Email%></TD>
+        </TR>
+        <%
+    }
+    }
+    %>
+    </TABLE>    <br><br>
+
+
+    Individual User
+    <br>
+    <TABLE BORDER=1>
+
+    <TR>
+    <TD>Delete</TD>
+    <TD>ID</TD>
+
+    <TD>User Name</TD>
+    <TD>User Email</TD>
+
+    </TR>
+
+    <%
+    if(iu.length>0){
+    for (var i=0;i<iu.length;i++)
+    {    
+
+        %>
+        <TR>
+        <TD><input type="radio" name="checkboxreqiu" value=<%=iu[i].ID+","+iu[i].AadharNumber%>></TD>
+        <TD><%=iu[i].ID%></TD>
+
+        <TD><%=iu[i].Name%></TD>
+        <TD><%=iu[i].Email%></TD>
+        </TR>
+        <%
+    }
+}
+    %>
+    </TABLE>    <br><br>
+
+
+    Merchant
+    <br>
+    <TABLE BORDER=1>
+
+    <TR>
+    <TD>Delete</TD>
+    <TD>ID</TD>
+
+    <TD>User Name</TD>
+    <TD>User Email</TD>
+
+    </TR>
+
+    <%
+    if(m.length>0){
+    for (var i=0;i<m.length;i++)
+    {    
+
+        %>
+        <TR>
+        <TD><input type="radio" name="checkboxreqm" value=<%=m[i].ID+","+m[i].AadharNumber%>></TD>
+        <TD><%=m[i].ID%></TD>
+
+        <TD><%=m[i].Name%></TD>
+        <TD><%=m[i].Email%></TD>
+        </TR>
+        <%
+    }
+}
+    %>
+
+
+    <%if(re.length>0||sm.length>0||iu.length>0||m.length>0){%>
+	</TABLE>
+	<input type="radio" name="app" value="Delete">Delete<br>
+
+<input type="hidden" id="hidden" name="hidden">
+<button type="submit" onclick="return abc();">Submit</button>
+<%}%>
+   
+</form>
+
+
+<script>
+function abc(){
+
+
+
+var check1=0;
+var check2=0;
+
+var tags = document.getElementsByName('checkboxreqre');
+var l1=0;
+for(var i = 0; i < tags.length; ++i)
+{
+    if(tags[i].checked)
+    l1=l1+1;
+}
+var tagre=document.getElementsByName('checkboxreqre');
+i = tagre.length - 1;
+
+for ( ; i > -1 ; i-- ) {
+
+    if ( tagre[i].checked ) { check1=1; }
+
+}
+var tags = document.getElementsByName('checkboxreqsm');
+var l2=0;
+for(var i = 0; i < tags.length; ++i)
+{
+    if(tags[i].checked)
+    l2=l2+1;
+}
+var tagsm=document.getElementsByName('checkboxreqsm');
+i = tagsm.length - 1;
+
+for ( ; i > -1 ; i-- ) {
+
+    if ( tagsm[i].checked ) { check1=1; }
+
+}
+var tags = document.getElementsByName('checkboxreqiu');
+var l3=0;
+for(var i = 0; i < tags.length; ++i)
+{
+    if(tags[i].checked)
+    l3=l3+1;
+}
+var tagiu=document.getElementsByName('checkboxreqiu');
+i = tagiu.length - 1;
+
+for ( ; i > -1 ; i-- ) {
+
+    if ( tagiu[i].checked ) { check1=1; }
+
+}
+var tags = document.getElementsByName('checkboxreqm');
+var l4=0;
+for(var i = 0; i < tags.length; ++i)
+{
+    if(tags[i].checked)
+    l4=l4+1;
+}
+var tagm=document.getElementsByName('checkboxreqm');
+i = tagm.length - 1;
+
+for ( ; i > -1 ; i-- ) {
+
+    if ( tagm[i].checked ) { check1=1; }
+
+}
+var deletetag=document.getElementsByName('app');
+i=deletetag.length-1;
+for ( ; i > -1 ; i-- ) {
+
+    if ( deletetag[i].checked ) { check2=1; }
+
+}
+
+var hidden=document.getElementById("hidden");
+hidden.value=l1+","+l2+","+l3+","+l4;
+
+if(check1==0 && check2==0){
+
+   alert("Please select at least one transaction and approve/reject button");
+    return false;
+ }
+ else if(check1==1 && check2==0){
+
+   alert("Please state approve or reject ");
+    return false;
+ }
+ else if(check1==0 && check2==1){
+
+   alert("Please select at least one transaction");
+   return false;
+ }
+ else if(check1==1 && check2==1){
+   return true;
+ }
+
+}
+</script>
+
+</TABLE>
+</form>
+</div>
+<%}%>

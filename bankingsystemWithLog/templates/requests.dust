@@ -1,0 +1,61 @@
+
+
+{> "layout" /}
+{<pageContent}
+<section class="page-wrapper">
+	<div class="page-title">
+		<div class="row">
+			<div class="col-md-3">
+				<span class="menu-icon-wrapper page-icon-wrapper menu-active"><i class="fa fa-television sidebar-icon" aria-hidden="true"></i></span><span class="page-main-heading page-heading-margin-fix">AccessRequests</span>
+			</div>
+		</div>
+	</div>
+    <br><br>
+	<div class="datable-wrapper">
+    	<table id="example" class="display" cellspacing="0" width="100%" border=2>
+            <thead>
+                <tr>
+                    {#data.headers}
+                        <th>{.}</th>
+                    {/data.headers}
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    {#data.headers}
+                        <th>{.}</th>
+                    {/data.headers}
+                </tr>
+            </tfoot>
+            <tbody>
+                {#data.dataTableHeaders}
+                    <tr>
+                        <td>{UserAadhar}</td>
+												<td><button onclick = accept({TransactionID})>accept</button></td>
+												<td><button onclick = reject({TransactionID})>reject</button></td>
+
+                    </tr>
+                {/data.dataTableHeaders}
+            </tbody>
+        </table>
+	</div>
+</section>
+<script type='text/javascript'>
+function accept(    TransactionID){
+console.log(    TransactionID);
+	$.ajax({
+			type: "POST",
+			url: "/requests/"+TransactionID+"/accept"
+	});
+}
+function reject(TransactionID){
+console.log(    TransactionID);
+$.ajax({
+		type: "POST",
+		url: "/requests/"+TransactionID+"/reject"
+});}
+
+</script>
+{/pageContent}
+
+

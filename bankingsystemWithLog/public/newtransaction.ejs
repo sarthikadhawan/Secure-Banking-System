@@ -1,0 +1,79 @@
+<%
+if(userid!=null&&sessionid!=null){%>
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<body>
+
+<h3>Transfer Money</h3>
+
+<div>
+  <form action="/transfer_money" method="post" id="nameform">
+
+    
+    <label for="accno"> My account Number :</label>
+    <input type="number" id="myaccno" name="myaccountnumber" placeholder="My Account number.." required="required" max="2147483645">
+
+    <label for="accno"> Account number of reciever :</label>
+    <input type="number" id="accnumber" name="accountnumber" placeholder="Account number.." required="required" max="2147483645">
+
+<label for="aadhar">Reciever's Aadhar Number :</label>
+    <input type="number" id="aadhar" name="accountaadhar" placeholder="Aadhar.." required="required" max="9999999999999999">
+
+    <label for="amt">Amount</label>
+    <input type="number" id="amt" name="amount" placeholder="Amount to be transferred.." required="required" max="500000">
+
+
+
+    <input type="submit" value="Submit" onclick="abc()">
+  </form>
+</div>
+
+</body>
+</html>
+<script>
+function abc()
+{
+var amt=document.getElementById("amt");
+amt.value=Math.abs(amt.value);
+alert(amt.value);
+}
+</script>
+
+<script>
+window.onload = function () { history.forward(); }
+window.onunload = function() {}; 
+</script>
+
+<%}%>

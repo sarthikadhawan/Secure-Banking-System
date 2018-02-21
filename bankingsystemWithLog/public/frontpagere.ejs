@@ -1,0 +1,72 @@
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%"> 
+
+  <%if(userid!=null&&sessionid!=null){%>
+
+
+<a href="https://192.168.2.142:80/view_msg" class="w3-bar-item w3-button w3-light-grey" id="b2" value="accreqsa">View Messages</a>
+<a href="https://192.168.2.142:80/transactionreqre" class="w3-bar-item w3-button w3-light-grey" id="b2" value="transactionreqre">Approve/Reject Transaction Requests</a>
+<a href="https://192.168.2.142:80/logoutre" class="w3-bar-item w3-button w3-light-grey" id="lo" value="logoutre">Logout</a>
+    
+
+
+
+
+</div>
+
+
+<style>
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+</style>
+
+<div class="content">
+<form method="post" action="/requestaccess">
+<h2>See customer transaction</h2>
+SEND REQUEST
+</br>
+user Aadhar - <input type="number" name="aadhar" required><br>
+reason - <input type="text" name="reason" required><br>
+<input type="hidden" name="empaadhar" value=<%=useraadhar%>><br>
+transaction id - <input type="number" name="transactionID" ><br>
+
+<input type="submit" value="verify" name="verify">
+</form>
+<br>
+
+
+Check if status is approved-<br>
+<form method="post" action="/checkstatusre">
+<input type="submit" value="check status of requests" name="submit">
+</form>
+
+
+
+<br>
+</div>
+    
+<%}%>
+
+<script>
+$(document).ready(function() {
+  $('#lo').click(function() {
+    $.ajax({
+      type: 'POST',
+      data: 'id=17446&chru=0',
+      success: function() { ... },
+      error: function(){ ... },
+      url: '/logoutre',
+      cache:false
+    });
+  });
+  return false;
+});
+</script>

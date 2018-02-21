@@ -1,0 +1,22 @@
+
+  <%if(userid!=null&&sessionid!=null){
+console.log("kk"+usertype);
+if(usertype==1){
+  %>
+  <a href="https://192.168.2.142:80/frontpagere" value="HOME">home</a><%
+}
+else if(usertype==2){
+  %><a href="https://192.168.2.142:80/frontpagesm" value="HOME">home</a><%
+}
+else if(usertype==3){
+  %><a href="https://192.168.2.142:80/frontpagesa" value="HOME">home</a><%
+}
+
+else if(usertype==4){
+%><a href="https://192.168.2.142:80/frontpageiu" value="HOME">home</a>
+<%}
+else{%>
+<a href="https://192.168.2.142:80/frontpagem" value="HOME">home</a><%}%>
+
+You dont have any messages as of now.
+<%}%>

@@ -1,0 +1,44 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+  <%if(userid!=null&&sessionid!=null){%>
+
+    <TABLE BORDER=1>
+  	<tr>
+    
+    <th>Aadhar Number of the user</th>
+    <th>Verified</th>
+    <th>transaction ID</th>
+    <th>See details</th>
+    
+    </tr>
+
+    <%
+    if(requests.length>0){
+        for (var i=0;i<requests.length;i++)
+        {
+            if(requests[i].TransactionID!=null){
+            %>
+                <tr>
+                <td><%=requests[i].OfUserAadhar%></td>
+                <td><%=requests[i].Verified%></td>
+                <td><%=requests[i].TransactionID%></td>
+                <td>
+                    <form method="post" action="/gettransactiondata">
+                        <input type="hidden" name="ofuseraadhar" value=<%=requests[i].OfUserAadhar%>>
+                        <input type="submit" name="getdata" value=<%=requests[i].TransactionID%>>See data
+                 </form>
+                </td>
+
+                </tr>
+                <%
+        }
+        }
+
+    }}
+    %>
+</TABLE>

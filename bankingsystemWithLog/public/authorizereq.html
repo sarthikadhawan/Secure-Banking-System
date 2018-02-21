@@ -1,0 +1,64 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+<%
+if(userid!=null&&sessionid!=null){%>
+if(usertype==1){
+  %>
+  <a href="https://192.168.2.142:80/frontpagere" value="HOME">home</a><%
+}
+else if(usertype==2){
+  %><a href="https://192.168.2.142:80/frontpagesm" value="HOME">home</a><%
+}
+else if(usertype==3){
+  %><a href="https://192.168.2.142:80/frontpagesa" value="HOME">home</a><%
+}
+
+else if(usertype==4){
+%><a href="https://192.168.2.142:80/frontpageiu" value="HOME">home</a>
+<%}
+else{%>
+<a href="https://192.168.2.142:80/frontpagem" value="HOME">home</a><%}%>
+
+
+<form method="post" action="/authorize_requests">
+  	<TABLE BORDER=1>
+  	<TR>
+    <TD>Approve/Reject</TD>
+    <TD>ID</TD>
+
+    <TD>Transaction ID</TD>
+    <TD>Debit Account No</TD>
+    <TD>Credit Account No</TD>
+    <TD>Amount</TD>
+
+    </TR>
+
+    <%
+    if(requests.length>0)
+    {
+    for (var i=0;i<requests.length;i++)
+    {    
+
+    	%>
+        <TR>
+        <TD><input type="radio" name="checkboxreq" value=<%=requests[i].TranscationID+","+requests[i].DebitAadharNo+","+requests[i].CreditAadharNo+","+requests[i].Amount+","+requests[i].DebitAccount+","+requests[i].CreditAccount%>></TD>
+        <TD><%=requests[i].TransactionID%></TD>
+
+        <TD><%=requests[i].DebitAccount%></TD>
+        <TD><%=requests[i].CreditAccount%></TD>
+        <TD><%=requests[i].Amount%></TD>
+        </TR>
+        <%
+    }
+    }}
+    %>
+	</TABLE>
+    <input type="hidden" name="_csrf" value='<%=csrftoken%>'><br>
+	
+    <input type="submit" value="Approve" name=app>
+	<input type="submit" value="Reject" name=rej>
+</form>

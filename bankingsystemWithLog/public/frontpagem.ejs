@@ -1,0 +1,21 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <%if(userid!=null&&sessionid!=null){%>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%"> 
+    <a href="https://192.168.2.142:80/createaccountejs" class="w3-bar-item w3-button w3-light-grey" id="b2" value="create_account">Create Account</a>
+    <a href="https://192.168.2.142:80/view_transactions" class="w3-bar-item w3-button w3-light-grey" id="b1" value="view_transactions" > View Transactions</a>
+    <a href="https://192.168.2.142:80/view_msg" class="w3-bar-item w3-button w3-light-grey" id="b1" value="view_msg" > View Messages</a>
+    <a href="https://192.168.2.142:80/get_info" class="w3-bar-item w3-button w3-light-grey" id="b1" value="get_info" > View Personal Details</a>
+    <a href="https://192.168.2.142:80/modify_details" class="w3-bar-item w3-button w3-light-grey" id="b2" value="modify_details"> Modify Details</a>
+    <a href="https://192.168.2.142:80/submit_payments" class="w3-bar-item w3-button w3-light-grey" id="b1" value="submit_payments" > Submit Payments</a>
+    <a href="https://192.168.2.142:80/authorize_requests" class="w3-bar-item w3-button w3-light-grey" id="b2" value="authorize_reviews">Authorize reviews</a>
+    <a href="https://192.168.2.142:80/newtransactionejs" class="w3-bar-item w3-button w3-light-grey" id="b2" value="transfer_money">Transfer Funds</a>
+    <a href="https://192.168.2.142:80/creditmoneyejs" class="w3-bar-item w3-button w3-light-grey" id="b2" value="credit_money">Credit Money</a>
+    <a href="https://192.168.2.142:80/debitmoneyejs" class="w3-bar-item w3-button w3-light-grey" id="b2" value="debit_money">Debit Money</a>
+    <a href="https://192.168.2.142:80/download_statements" class="w3-bar-item w3-button w3-light-grey" id="b2" value="ViewMessages">PrintLog</a>
+    <a href="https://192.168.2.142:80/logoutm" class="w3-bar-item w3-button w3-light-grey" id="lo" value="logoutm">Logout</a>
+</div>
+<%}%>

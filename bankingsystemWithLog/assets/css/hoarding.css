@@ -1,0 +1,122 @@
+body {
+    background-color: #f4f4f4;
+}
+
+section[role="banner"] {
+    height: 400px;
+    line-height: 400px;
+    text-align: center;
+    background: #410093;
+    overflow: hidden;
+    box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section[role="product-wrapper"] {
+    height: 300px;
+    width: 90%;
+    margin: -12% auto 0;
+    position: relative;
+    display: block;
+}
+
+section[role="product-wrapper"] .productImage {
+    width: 25%;
+    height: 95%;
+    position: absolute;
+    box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+}
+
+section[role="product-wrapper"] .productSection {
+    margin: 1em;
+    height: 100%;
+    postition: relative;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.productSection .tabs .nav-item .nav-link {
+    background-color: #f4f4f4 !important;
+    border: 0;
+    border-radius: 0 !important;
+}
+
+.productSection .tabs .nav-item .nav-link.active {
+    background-color: #f4f4f4 !important;
+    color: #0275d8 !important;
+    border-bottom: 5px solid #34bf49 !important;
+}
+
+section[role="product-wrapper"] .tabs {
+    position: absolute;
+    bottom: 0;
+    left: 26%;
+    width: 100%;
+    padding-bottom: 1em;
+}
+
+section[role="product-wrapper"] .nav-item {
+    padding: 0 1em;
+}
+
+section[role="productContainer"] {
+    width: 90%;
+    margin: 1em auto;
+    background-color: #f4f4f4;
+}
+
+.product-card {
+    background-color: #fff;
+    margin: 1em;
+    -webkit-box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+}
+
+.product-card .product-header {
+    padding: 1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.product-card .product-block {
+    padding: 2em;
+}
+
+.recommendations .card {
+    border-radius: 0;
+    border: 0;
+}
+
+.recommendations .card-title {
+    font-size: 1rem;
+}
+
+.recommendations img {
+    max-width: 100%;
+}
+
+.contact profile {
+    -webkit-box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+}
+
+.card {
+    -webkit-box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.75);
+}
+
+.timeline-content .profileName {
+    line-height: 1.5em;
+}
+
+.thumb {
+    margin-bottom: 30px;
+}
+
+
+/*# sourceMappingURL=productlatest.css.map */

@@ -1,0 +1,85 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <%if(userid!=null&&sessionid!=null){%>
+
+    if(usertype==1){
+  %>
+  <a href="https://192.168.2.142:80/frontpagere" value="HOME">home</a><%
+}
+else if(usertype==2){
+  %><a href="https://192.168.2.142:80/frontpagesm" value="HOME">home</a><%
+}
+else if(usertype==3){
+  %><a href="https://192.168.2.142:80/frontpagesa" value="HOME">home</a><%
+}
+
+else if(usertype==4){
+%><a href="https://192.168.2.142:80/frontpageiu" value="HOME">home</a>
+<%}
+else{%>
+<a href="https://192.168.2.142:80/frontpagem" value="HOME">home</a><%}%>
+
+
+<form method="get" action="frontpagere">
+<button name="getdata" value=<%=aadhar%>>back</button>
+</form>
+<form method="post" action="/re/approverejecttransactionre">
+  	<TABLE BORDER=1>
+  	<TR>
+      <TD>Approve/Reject</TD>
+      <TD>ID</TD>
+      <TD>TransactionID</TD>
+      <TD>Debit account</TD>
+      <TD>Credit account</TD>
+      <TD>Debit AadharNumber</TD>
+      <TD>Credit AadharNumber</TD>
+      <TD>Amount</TD>
+    </TR>
+    <%
+    console.log(requests.length);
+    if(requests.length>0){
+    for (var i=0;i<requests.length;i++)
+    {
+    	%>
+        <TR>
+          <TD><input type="checkbox" name="checkboxreq" value=<%=requests[i].ID+","+requests[i].TransactionID+","+requests[i].DebitAccount+","+requests[i].CreditAccount+","+requests[i].DebitAadharNo+","+requests[i].CreditAadharNo+","+requests[i].Amount%>></TD>
+          <TD><%=requests[i].ID%></TD>
+          <TD><%=requests[i].TransactionID%></TD>
+          <TD><%=requests[i].DebitAccount%></TD>
+          <TD><%=requests[i].CreditAccount%></TD>
+          <TD><%=requests[i].DebitAadharNo%></TD>
+          <TD><%=requests[i].CreditAadharNo%></TD>
+          <TD><%=requests[i].Amount%></TD>
+        </TR>
+        <%
+    }
+    %>
+	</TABLE>
+  <input type="radio" name="app" value="Approve">Approve<br>
+  <input type="radio" name="app" value="Reject">Reject<br>
+<input type="hidden" id="hidden" name="hidden">
+
+	
+<button type="submit" onclick="abc()">Submit</button>
+    <%}}%>
+</form>
+
+
+
+<script>
+function abc(){
+var tags = document.getElementsByName('checkboxreq');
+var l=0;
+for(var i = 0; i < tags.length; ++i)
+{
+    if(tags[i].checked)
+    l=l+1;
+}
+var hidden=document.getElementById("hidden");
+hidden.value=l;
+}
+</script>

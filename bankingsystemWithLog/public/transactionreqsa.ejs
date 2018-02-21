@@ -1,0 +1,166 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+  <%if(userid!=null&&sessionid!=null){%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+  <style type="text/css">
+    body {
+      font-family: "Roboto";
+    }
+    .nav-wrapper {
+      background-color: #01579b;
+    }
+    .brand-logo {
+      margin-left: 10px;
+      font-family: "Roboto";
+      font-weight: 300;
+    }
+    .home {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="home card-panel">
+      <form method="post" action="/approverejecttransactionsa">
+        <TABLE class="highlight" BORDER=1>
+        <TR>
+          <TD>Approve/Reject</TD>
+          <TD>ID</TD>
+          <TD>TransactionID</TD>
+          <TD>Debit account</TD>
+          <TD>Credit account</TD>
+          <TD>Debit AadharNumber</TD>
+          <TD>Credit AadharNumber</TD>
+          <TD>Amount</TD>
+        </TR>
+
+        <%
+        console.log(requests.length);
+        if(requests.length>0){
+        for (var i=0;i<requests.length;i++)
+        {
+          %>
+            <TR>
+              <TD>
+              
+              <input id="t<%= i %>" type="radio" name="checkboxreq" value=<%=requests[i].ID+","+requests[i].TransactionID+","+requests[i].DebitAccount+","+requests[i].CreditAccount+","+requests[i].DebitAadharNo+","+requests[i].CreditAadharNo+","+requests[i].Amount%>><label for="t<%= i %>"></label></TD>
+              <TD><%=requests[i].ID%></TD>
+              <TD><%=requests[i].TransactionID%></TD>
+              <TD><%=requests[i].DebitAccount%></TD>
+              <TD><%=requests[i].CreditAccount%></TD>
+              <TD><%=requests[i].DebitAadharNo%></TD>
+              <TD><%=requests[i].CreditAadharNo%></TD>
+              <TD><%=requests[i].Amount%></TD>
+            </TR>
+            <%
+        }
+
+        %>
+      </TABLE>
+      <input id="approve" type="radio" name="app" value="Approve"><label for="approve">Approve</label>
+      <input id="reject" type="radio" name="app" value="Reject"><label for="reject">Reject</label><br>
+      <input type="hidden" id="hidden" name="hidden">
+
+      <button class="waves-effect waves-light btn" type="submit" onclick="return abc();">Submit</button>
+        <%}}%>
+    </form>
+    
+    </div>
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
+<script type="text/javascript">
+   $(".button-collapse").sideNav();
+</script>
+<script>
+function abc(){
+var tags = document.getElementsByName('checkboxreq');
+var l=0;
+for(var i = 0; i < tags.length; ++i)
+{
+    if(tags[i].checked)
+    l=l+1;
+}
+var hidden=document.getElementById("hidden");
+hidden.value=l;
+
+var tag=document.getElementsByName('checkboxreq');
+i = tag.length - 1;
+var check1=0;
+var check2=0;
+for ( ; i > -1 ; i-- ) {
+
+    if ( tag[i].checked ) { check1=1; }
+
+}
+
+var tag1=document.getElementsByName('app');
+i = tag1.length - 1;
+
+for ( ; i > -1 ; i-- ) {
+
+    if ( tag1[i].checked ) { check2=1; }
+
+}
+ if(check1==0 && check2==0){
+
+   alert("Please select at least one transaction and approve/reject button");
+    return false;
+ }
+ else if(check1==1 && check2==0){
+
+   alert("Please state approve or reject ");
+    return false;
+ }
+ else if(check1==0 && check2==1){
+
+   alert("Please select at least one transaction");
+   return false;
+ }
+ else if(check1==1 && check2==1){
+   return true;
+ }
+
+}
+</script>
+<script>
+function check(){
+  var text=document.getElementById("text").value;
+  var alphanumeric = text;
+var myRegEx  = /[^a-z\d]/i;
+var isValid = !(myRegEx.test(alphanumeric));
+if(isValid)
+  {
+    alert("hi");
+  }
+  else {
+    alert("no hi");
+  }
+}
+</script>
+</html>

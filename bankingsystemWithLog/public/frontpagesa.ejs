@@ -1,0 +1,37 @@
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+<%
+
+if(userid!=null&&sessionid!=null){%>
+ 
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%"> 
+    <a href="https://192.168.2.142:80/regrequestsa" class="w3-bar-item w3-button w3-light-grey" id="b1" value="regrequestsa" >Registration Requests</a>
+    <a href="https://192.168.2.142:80/viewsyslogsa" class="w3-bar-item w3-button w3-light-grey" id="b2" value="viewsyslogsa">View System Log</a>
+    <a href="https://192.168.2.142:80/delusersa" class="w3-bar-item w3-button w3-light-grey" id="b2" value="delusersa">Delete User Accounts</a>
+    <a href="https://192.168.2.142:80/transactionreqsa" class="w3-bar-item w3-button w3-light-grey" id="b2" value="transactionreqsa">Approve/Reject Transaction Requests</a>
+    <a href="https://192.168.2.142:80/accreqsa" class="w3-bar-item w3-button w3-light-grey" id="b2" value="accreqsa">Approve/Reject Account Creation Requests</a>
+    <a href="https://192.168.2.142:80/view_msg" class="w3-bar-item w3-button w3-light-grey" id="b2" value="accreqsa">View Messages</a>
+   <a href="https://192.168.2.142:80/logoutsa" class="w3-bar-item w3-button w3-light-grey" id="lo" value="logoutsa">Logout</a>
+    
+</div>
+<%}%>
+
+<script>
+$(document).ready(function() {
+  $('#lo').click(function() {
+    $.ajax({
+      type: 'POST',
+      data: 'id=17446&chru=0',
+      success: function() { ... },
+      error: function(){ ... },
+      url: '/logoutsa',
+      cache:false
+    });
+  });
+  return false;
+});
+</script>

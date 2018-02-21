@@ -1,0 +1,31 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+<%if(userid!=null&&sessionid!=null){%>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%"> 
+    <a href="https://192.168.2.142:80/approverejecttransactionsm" class="w3-bar-item w3-button w3-light-grey" id="b1" value="approverejecttransactionsm" >Approve/Reject Requests</a>
+     <a href="https://192.168.2.142:80/requestaccess" class="w3-bar-item w3-button w3-light-grey" id="b2" value="requestaccess">Request access</a>
+     <a href="https://192.168.2.142:80/view_msg" class="w3-bar-item w3-button w3-light-grey" id="b2" value="accreqsa">View Messages</a>
+     <a href="https://192.168.2.142:80/logoutsm" class="w3-bar-item w3-button w3-light-grey" id="lo" value="logoutsm">Logout</a>
+    
+</div>
+<%}%>
+
+<script>
+$(document).ready(function() {
+  $('#lo').click(function() {
+    $.ajax({
+      type: 'POST',
+      data: 'id=17446&chru=0',
+      success: function() { ... },
+      error: function(){ ... },
+      url: '/logoutsm',
+      cache:false
+    });
+  });
+  return false;
+});
+</script>

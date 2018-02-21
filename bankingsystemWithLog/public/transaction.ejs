@@ -1,0 +1,45 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+  <%if(userid!=null&&sessionid!=null){%>
+<form method="get" action="mfrontpage">
+	<TABLE BORDER=1>
+  	<TR>
+      <TD>ID</TD>
+      <TD>Debit Account</TD>
+      <TD>Credit account</TD>
+      <TD>Debit Aadhar Number</TD>
+      <TD>Credit Aadhar Number</TD>
+      <TD>Amount</TD>
+      <TD>Time </TD>
+      <TD>Status</TD>
+        </TR>
+
+
+    <%
+    if(requests.length>0){
+    for (var i=0;i<requests.length;i++)
+    {
+    	%>
+        <TR>
+          <TD><%=requests[i].ID%></TD>
+          <TD><%=requests[i].DebitAccount%></TD>
+          <TD><%=requests[i].CreditAccount%></TD>
+          <TD><%=requests[i].DebitAadharNo%></TD>
+          <TD><%=requests[i].CreditAadharNo%></TD>
+          <TD><%=requests[i].Amount%></TD>
+	  <TD><%=requests[i].TimeStamp%></TD>
+      	  <TD><%=requests[i].Status%></TD>
+        </TR>
+        <%
+    }
+
+    %>
+	</TABLE>
+   <%}}%>
+</form>
+
