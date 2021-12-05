@@ -1,6 +1,0 @@
-{> "layout" /}
-{<pageContent}
-<section class="page-wrapper">
-	<h1><b style="color:red"> ERROR</b></h1>
- <h2>  <b style="color:red">{data.message}</b></h2>
-{/pageContent}
